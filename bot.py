@@ -1,10 +1,10 @@
 import asyncio, threading, time, requests
 from aiohttp import web
 from pyrogram import Client, idle
-from configs import API_ID, API_HASH, USER_SESSION, PORT, URL, SCRAPE_INTERVAL, PING_INTERVAL
+from configs import API_ID, API_HASH, BOT_TOKEN, PORT, URL, SCRAPE_INTERVAL, PING_INTERVAL
 from tamilmv import tmv_scraper
 
-User = Client("User", api_id=API_ID, api_hash=API_HASH, session_string=USER_SESSION)
+User = Client("User", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 # ---------- Keep-alive Ping ----------
 def ping_loop():
@@ -44,7 +44,7 @@ async def start_server():
 async def start_bot():
     await User.start()
     user = await User.get_me()
-    print(f"✅ User logged in: @{user.username}")
+    print(f"✅ Bot logged in: @{user.username}")
     asyncio.create_task(main_loop())
     await start_server()
     await idle()
@@ -55,3 +55,4 @@ if __name__ == "__main__":
         asyncio.get_event_loop().run_until_complete(start_bot())
     except KeyboardInterrupt:
         print("🛑 Bot stopped manually.")
+# Coded by @SMDxTG - if Any Query Ask him Directly
