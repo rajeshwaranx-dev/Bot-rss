@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()  # Load from .env file
 
 # Telegram
-API_ID = int(os.getenv("API_ID", ""))
-API_HASH = os.getenv("API_HASH", "")
+API_ID = int(os.getenv("API_ID", "36633051"))
+API_HASH = os.getenv("API_HASH", "ba52b4e3afcebd6f82696308ac5afc42")
 USER_SESSION = os.getenv("USER_SESSION", "") # Use Pyrogram V2 String Session 
 #if you don't have string Gen bot - use it my bot @SMD_StringBot
 
@@ -16,13 +16,13 @@ PORT = int(os.getenv("PORT", "8080"))
 URL = os.getenv("URL", "") # Heroku or Koyeb Or Render Base Url 
 
 # MongoDB
-DATABASE_URL = os.getenv("DATABASE_URL", "") #Mongodb Url 
-DATABASE_NAME = os.getenv("DATABASE_NAME", "") # example Cluster0
+DATABASE_URL = os.getenv("DATABASE_URL", "mongodb+srv://thanos:thanos2@cluster0.6u52un7.mongodb.net/?appName=Cluster0") #Mongodb Url 
+DATABASE_NAME = os.getenv("DATABASE_NAME", "thanos") # example Cluster0
 
 # TamilMV settings
 TMV_URL = os.getenv("TMV_URL", "https://www.1tamilmv.land/")
-TMV_TORRENT = int(os.getenv("TMV_TORRENT", ""))
-TMV_LEECH_GRP = int(os.getenv("TMV_LEECH_GRP", ""))
+TMV_TORRENT = int(os.getenv("TMV_TORRENT", "-1003800286118"))
+TMV_LEECH_GRP = int(os.getenv("TMV_LEECH_GRP", "-1002007085025"))
 TMV_MIRROR_GRP = int(os.getenv("TMV_MIRROR_GRP", ""))
 TMV_TORRENT_THUMB = os.getenv("TMV_TORRENT_THUMB", "https://i.ibb.co/7dq7mMLp/photo-2025-10-18-16-42-28-7562603128038621216.jpg") #torrant Pic
 BOT_TAG = os.getenv("BOT_TAG", "@SMD_BOTz") # File Prefix
