@@ -6,7 +6,7 @@ load_dotenv()  # Load from .env file
 # Telegram
 API_ID = int(os.getenv("API_ID", "36633051"))
 API_HASH = os.getenv("API_HASH", "ba52b4e3afcebd6f82696308ac5afc42")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8728470482:AAEoDmBqEl9eMbyarzpTvLdW4V-CwzOnafE")  # Get from @BotFather
+BOT_TOKEN = os.getenv("BOT_TOKEN", "7577907574:AAEQpYVEssCUbm8YMXARQFte4NOCr0oLWwA")  # Get from @BotFather
 
 # Web
 PORT = int(os.getenv("PORT", "8080"))
