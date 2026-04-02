@@ -21,7 +21,7 @@ TMV_URL = os.getenv("TMV_URL", "https://www.1tamilmv.immo/")
 TMV_TORRENT = int(os.getenv("TMV_TORRENT", "-1003498539379"))
 TMV_LEECH_GRP = int(os.getenv("TMV_LEECH_GRP", "-1002007085025"))
 TMV_MIRROR_GRP = int(os.getenv("TMV_MIRROR_GRP", "0"))
-TMV_TORRENT_THUMB = os.getenv("TMV_TORRENT_THUMB", "https://i.ibb.co/ZzkWK8gG/Gemini-Generated-Image-m052bhm052bhm052.png")
+TMV_TORRENT_THUMB = os.getenv("TMV_TORRENT_THUMB", "https://i.ibb.co/qFFVpxkc/Gemini-Generated-Image-cy7nhfcy7nhfcy7n-1.png")
 BOT_TAG = os.getenv("BOT_TAG", "@AskBotz")
 
 # Internal
