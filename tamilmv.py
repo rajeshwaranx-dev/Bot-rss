@@ -55,11 +55,12 @@ def fix_url(href: str) -> str:
     return href if href.startswith("http") else urljoin(TMV_URL, href)
 
 def categorize_content(title: str) -> str:
-    """Detects if content is a Movie, Series, or Dubbed based on title."""
+    """Detects if content is Movies, Series, or Dubbed based on title."""
     t = title.lower()
-    # Only match proper season/episode patterns — NOT quality terms like hdrip
+
+    # Series — strict patterns only, no quality terms like hdrip
     series_patterns = [
-        r's\d{1,2}e\d{1,2}',   # S01E01 format
+        r's\d{1,2}e\d{1,2}',   # S01E01
         r'season\s?\d+',        # Season 1, Season1
         r'ep\s?\d+',            # Ep 01, EP01
         r'\bepisode\b',         # episode keyword
@@ -67,8 +68,21 @@ def categorize_content(title: str) -> str:
     ]
     if any(re.search(p, t) for p in series_patterns) or "web series" in t or "tv show" in t:
         return "Series"
-    if "dubbed" in t or "tam+" in t or "multi" in t or "hindi" in t or "telugu" in t:
+
+    # Dubbed — only when multiple languages present in title
+    multi_lang_patterns = [
+        r'tam\s*\+\s*tel',
+        r'tam\s*\+\s*hin',
+        r'tamil\s*\+\s*telugu',
+        r'tamil\s*\+\s*hindi',
+        r'tam\s*\+\s*tel\s*\+',
+        r'\bmulti\b',
+        r'\bdubbed\b',
+        r'tam\+',
+    ]
+    if any(re.search(p, t) for p in multi_lang_patterns):
         return "Dubbed"
+
     return "Movies"
 
 def download_file(scraper, url: str, filename: str) -> bool:
@@ -173,4 +187,4 @@ async def tmv_scraper(user: Client):
 
     except Exception as e:
         print(f"🛑 Error: {e}")
-    
+                
